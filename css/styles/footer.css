@@ -1,0 +1,6 @@
+#footer {
+	grid-area: footer;
+	padding: 1.3rem;
+	min-height: 15vh;
+	background: #232323;
+}

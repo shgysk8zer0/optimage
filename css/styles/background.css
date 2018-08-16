@@ -1,0 +1,20 @@
+.background-photography {
+	background-image: var(--photo-bg-h);
+}
+@media (min-width: 1024px) {
+	.background-photography {
+		background-image: var(--photo-bg-f);
+	}
+}
+
+@media (min-width: 321px) and (max-width: 640px) {
+	.background-photography {
+		background-image: var(--photo-bg-l);
+	}
+}
+
+@media (max-width: 320px) {
+	.background-photography {
+		background-image: var(--photo-bg-m);
+	}
+}

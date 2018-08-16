@@ -1,0 +1,30 @@
+:root {
+	--primary-color: #ababab;
+	--default-color: #343434;
+	--main-font: Roboto;
+	--alt-color: #fefefe;
+	--button-border: none;
+	--button-border-radius: 0.3rem;
+	--button-padding: 0.8rem 1.3rem;
+	--button-background: #5274eb;
+	--button-color: var(--alt-color);
+	--button-active-background: #3d5ed0;
+	--button-active-color: var(--button-color);
+	--button-active-border: var(--button-border);
+	--button-disabled-background: #8c8c8c;
+	--button-disabled-color: #3c3c3c;
+	--button-disabled-border: var(--button-border);
+	--button-confirm-background: #35d121;
+	--button-confirm-active-background: #14a801;
+	--button-confirm-color: var(--button-color);
+	--button-danger-background: #cf4040;
+	--button-danger-color: var(--button-color);
+	--button-danger-active-background: #821010;
+	--nav-height: 4rem;
+
+	--photo-bg-f: url("https://i.imgur.com/XoyqyXH.jpg");
+	--photo-bg-h: url("https://i.imgur.com/XoyqyXHh.jpg");
+	--photo-bg-l: url("https://i.imgur.com/XoyqyXHl.jpg");
+	--photo-bg-m: url("https://i.imgur.com/XoyqyXHm.jpg");
+	--photo-bg-t: url("https://i.imgur.com/XoyqyXHt.jpg");
+}

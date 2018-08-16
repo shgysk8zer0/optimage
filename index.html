@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js border-box background-primary color-default font-main smooth-scroll">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>OptImage</title>
+		<script src="js/index.js" type="module" async=""></script>
+		<link rel="stylesheet" href="css/styles/index.css" media="all" />
+	</head>
+	<body class="grid">
+		<header id="header" class="background-cover background-center background-photography"></header>
+		<nav id="nav" class="sticky top shadow flex row no-wrap">
+			<button type="button" title="Sign-in" class="btn btn-default" data-show-modal="#login-dialog">
+				<svg class="current-color icon">
+					<use xlink:href="img/icons.svg#sign-in" />
+				</svg>
+			</button>
+			<button type="button" title="Register" class="btn btn-default" data-show-modal="#registration-dialog">
+				<svg class="current-color icon">
+					<use xlink:href="img/icons.svg#contact-new" />
+				</svg>
+			</button>
+			<button type="button" title="Sign-out" class="btn btn-default" data-action="sign-out" disabled="" hidden="">
+				<svg class="current-color icon">
+					<use xlink:href="img/icons.svg#sign-out" />
+				</svg>
+			</button>
+		</nav>
+		<main></main>
+		<aside id="sidebar"></aside>
+		<footer id="footer" class="color-alt">
+			<p>
+				<span>&copy;</span>
+				<time>2018</time>
+				<a href="https://shgysk8zer0.github.io/" target="_blank" rel="external">Chris Zuber</a>
+			</p>
+		</footer>
+		<dialog id="login-dialog" class="card shadow animation-speed-normal animation-ease-in-out fadeIn">
+			<form name="login">
+				<fieldset>
+					<legend>Login</legend>
+					<label for="login-email" title="Email">
+						<svg class="current-color icon">
+							<use xlink:href="img/icons.svg#mail" />
+						</svg>
+					</label>
+					<input type="email" name="email" id="login-email" placeholder="user@example.com" autocomplete="email" required="" />
+					<br />
+					<label for="login-password" title="Password">
+						<svg class="current-color icon">
+							<use xlink:href="img/icons.svg#dialog-password" />
+						</svg>
+					</label>
+					<input type="password" name="password" id="login-password" placeholder="********" minlength="8" autocomplete="current-password" required="" />
+				</fieldset>
+				<button type="submit" title="Submit" class="btn btn-confirm">
+					<svg class="current-color icon">
+						<use xlink:href="img/icons.svg#check" />
+					</svg>
+				</button>
+				<button type="reset" title="Cancel" class="btn btn-danger" data-close="#login-dialog">
+					<svg class="current-color icon">
+						<use xlink:href="img/icons.svg#edit-clear" />
+					</svg>
+				</button>
+				<hr />
+				<button type="button" title="Register" class="btn btn-default" data-close="#login-dialog" data-show-modal="#registration-dialog">
+					<svg class="current-color icon">
+						<use xlink:href="img/icons.svg#contact-new" />
+					</svg>
+				</button>
+			</form>
+		</dialog>
+		<dialog id="registration-dialog" class="card shadow animation-speed-normal animation-ease-in-out fadeIn">
+			<form name="login">
+				<fieldset>
+					<legend>Register</legend>
+					<label for="registration-email" title="Email">
+						<svg class="current-color icon">
+							<use xlink:href="img/icons.svg#mail" />
+						</svg>
+					</label>
+					<input type="email" name="email" id="registration-email" placeholder="user@example.com" autocomplete="email" required="" />
+					<br />
+					<label for="registration-password" title="Password">
+						<svg class="current-color icon">
+							<use xlink:href="img/icons.svg#dialog-password" />
+						</svg>
+					</label>
+					<input type="password" name="password" id="registration-password" placeholder="********" minlength="8" autocomplete="new-password" required="" />
+				</fieldset>
+				<button type="submit" title="Submit" class="btn btn-confirm">
+					<svg class="current-color icon">
+						<use xlink:href="img/icons.svg#check" />
+					</svg>
+				</button>
+				<button type="reset" title="Cancel" class="btn btn-danger" data-close="#registration-dialog">
+					<svg class="current-color icon">
+						<use xlink:href="img/icons.svg#edit-clear" />
+					</svg>
+				</button>
+				<hr />
+				<button type="button" title="Sign-in" class="btn btn-default" data-close="#registration-dialog" data-show-modal="#login-dialog">
+					<svg class="current-color icon">
+						<use xlink:href="img/icons.svg#sign-in" />
+					</svg>
+				</button>
+			</form>
+		</dialog>
+	</body>
+</html>

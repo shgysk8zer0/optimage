@@ -1,0 +1,38 @@
+@charset "UTF-8";
+@import url("../core-css/viewport.css");
+@import url("../normalize/normalize.css");
+@import url("./vars.css");
+@import url("../core-css/element.css");
+@import url("../core-css/class-rules.css");
+@import url("../animate.css/animate.css");
+@import url("../core-css/animations.css");
+@import url("../core-css/fonts.css");
+@import url("./background.css");
+@import url("./layout.css");
+
+dialog {
+	border: none;
+}
+
+.btn {
+	margin: 0.6em 0.3em;
+	min-width: 8rem;
+}
+
+.btn-confirm:not(:disabled) {
+	background: var(--button-confirm-background);
+	color: var(--button-confirm-color, var(--button-color));
+}
+
+.btn-confirm:active {
+	background: var(--button-confirm-active-background);
+}
+
+.btn-danger:not(:disabled) {
+	background: var(--button-danger-background);
+	color: var(--button-danger-color, var(--button-color));
+}
+
+.btn-danger:active {
+	background: var(--button-danger-active-background);
+}

@@ -1,0 +1,38 @@
+{
+  "name": "optimage",
+  "version": "1.0.0",
+  "description": "An image uploading and optimization backend",
+  "scripts": {
+    "lint:js": "eslint .",
+    "lint:css": "stylelint css/",
+    "build:css": "postcss css/styles/index.css -o css/styles/index.min.css",
+    "build:icons": "svg-sprite-generate -c icons.csv -o img/icons.svg",
+    "postinstall": "git submodule update --init --recursive && npm run build:icons",
+    "start": "php -S localhost:8000",
+    "test": "npm run lint:js && npm run lint:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shgysk8zer0/optimage.git"
+  },
+  "keywords": [
+    "image",
+    "api",
+    "optimization"
+  ],
+  "author": "Chris Zuber <shgysk8zer0@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shgysk8zer0/optimage/issues"
+  },
+  "homepage": "https://github.com/shgysk8zer0/optimage#readme",
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-plugin-async-await": "0.0.0",
+    "stylelint": "^9.4.0",
+    "svgo": "^1.0.5"
+  },
+  "dependencies": {
+    "svg-sprite-generator": "0.0.7"
+  }
+}
