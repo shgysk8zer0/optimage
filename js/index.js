@@ -9,6 +9,7 @@ import './components/register-button.js';
 import './components/login-button.js';
 import './components/registration-form.js';
 import './components/upload-form.js';
+import './components/copyright-year.js';
 
 ready().then(async () => {
 	const $doc = $(document.documentElement);
