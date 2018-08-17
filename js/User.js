@@ -12,7 +12,7 @@ export default class User extends EventTarget {
 		} else {
 			this.logOut().then(() => {
 				this.dispatchEvent(new CustomEvent('stateChange'));
-				this.dispatchEvent(new CustomEvent('login'));
+				this.dispatchEvent(new CustomEvent('logOut'));
 			});
 		}
 	}
