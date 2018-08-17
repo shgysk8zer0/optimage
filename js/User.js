@@ -1,19 +1,20 @@
-import {$} from './std-js/functions.js';
+let instance = null;
 
 export default class User extends EventTarget {
 	constructor(signedIn = false) {
 		super();
 		this.state = null;
+
+		this.addEventListener('login', () => {
+			sessionStorage.setItem('signedIn', 'yes');
+		});
+		this.addEventListener('logout', () => {
+			sessionStorage.setItem('signedIn', 'no');
+		});
 		if (signedIn) {
-			this.login().then(() => {
-				this.dispatchEvent(new CustomEvent('stateChange'));
-				this.dispatchEvent(new CustomEvent('login'));
-			});
+			this.login();
 		} else {
-			this.logOut().then(() => {
-				this.dispatchEvent(new CustomEvent('stateChange'));
-				this.dispatchEvent(new CustomEvent('logOut'));
-			});
+			this.logOut();
 		}
 	}
 
@@ -28,19 +29,15 @@ export default class User extends EventTarget {
 	}
 
 	async login() {
-		sessionStorage.setItem('signedIn', 'yes');
-		document.documentElement.dataset.loggedIn = 'yes';
-		document.documentElement.classList.add('signed-in');
-		$('.signed-in').attr({hidden: false, disabled: false});
-		$('.signed-out').attr({hidden: true, disabled: true});
+		this.state = true;
+		this.dispatchEvent(new CustomEvent('login'));
+		this.dispatchEvent(new CustomEvent('stateChange'));
 	}
 
 	async logOut() {
-		sessionStorage.setItem('signedIn', 'no');
-		document.documentElement.dataset.loggedIn = 'no';
-		document.documentElement.classList.remove('signed-in');
-		$('.signed-in').attr({hidden: true, disabled: true});
-		$('.signed-out').attr({hidden: false, disabled: false});
+		this.state = false;
+		this.dispatchEvent(new CustomEvent('logout'));
+		this.dispatchEvent(new CustomEvent('stateChange'));
 	}
 
 	get signedIn() {
@@ -48,8 +45,13 @@ export default class User extends EventTarget {
 	}
 
 	static async init() {
-		const state = sessionStorage.hasOwnProperty('signedIn') && sessionStorage.getItem('signedIn') === 'yes';
-		const user = new User(state);
-		return user.ready();
+		if (instance !== null) {
+			return instance;
+		} else {
+			const state = sessionStorage.hasOwnProperty('signedIn') && sessionStorage.getItem('signedIn') === 'yes';
+			const user = new User(state);
+			instance = user;
+			return user.ready();
+		}
 	}
 }

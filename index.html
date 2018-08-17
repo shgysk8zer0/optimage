@@ -20,7 +20,7 @@
 					<use xlink:href="img/icons.svg#contact-new" />
 				</svg>
 			</button>
-			<button type="button" title="Sign-out" class="btn btn-default signed-in" data-action="sign-out" disabled="" hidden="">
+			<button type="button" title="Sign-out" is="logout-button" class="btn btn-default">
 				<svg class="current-color icon">
 					<use xlink:href="img/icons.svg#sign-out" />
 				</svg>
@@ -62,7 +62,7 @@
 			</form>
 		</dialog>
 		<dialog id="login-dialog" class="card shadow animation-speed-normal animation-ease-in-out fadeIn">
-			<form name="login">
+			<form name="login" is="login-form">
 				<fieldset>
 					<legend>Login</legend>
 					<label for="login-email" title="Email">
