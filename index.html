@@ -10,22 +10,22 @@
 	<body class="grid">
 		<header id="header" class="background-cover background-center background-photography"></header>
 		<nav id="nav" class="sticky top shadow flex row no-wrap">
-			<button type="button" title="Sign-in" class="btn btn-default" data-show-modal="#login-dialog">
+			<button type="button" title="Sign-in" class="btn btn-default signed-out" data-show-modal="#login-dialog" data-action="sign-in">
 				<svg class="current-color icon">
 					<use xlink:href="img/icons.svg#sign-in" />
 				</svg>
 			</button>
-			<button type="button" title="Register" class="btn btn-default" data-show-modal="#registration-dialog">
+			<button type="button" title="Register" class="btn btn-default signed-out" data-show-modal="#registration-dialog" data-action="register">
 				<svg class="current-color icon">
 					<use xlink:href="img/icons.svg#contact-new" />
 				</svg>
 			</button>
-			<button type="button" title="Sign-out" class="btn btn-default" data-action="sign-out" disabled="" hidden="">
+			<button type="button" title="Sign-out" class="btn btn-default signed-in" data-action="sign-out" disabled="" hidden="">
 				<svg class="current-color icon">
 					<use xlink:href="img/icons.svg#sign-out" />
 				</svg>
 			</button>
-			<button type="button" title="upload" class="btn btn-default" data-show-modal="#upload-dialog">
+			<button type="button" title="Upload" class="btn btn-default signed-in" data-show-modal="#upload-dialog" data-action="upload" hidden="" disabled="">
 				<svg class="current-color icon">
 					<use xlink:href="img/icons.svg#cloud-upload" />
 				</svg>
