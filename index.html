@@ -41,7 +41,7 @@
 			</p>
 		</footer>
 		<dialog id="upload-dialog"class="card shadow animation-speed-normal animation-ease-in-out fadeIn">
-			<form name="Upload" is="upload-form">
+			<form name="Upload" action="api/v1/upload/" method="post" is="upload-form">
 				<label for="upload-file" title="File" class="center">
 					<svg class="current-color icon">
 						<use xlink:href="img/icons.svg#file-media" />
@@ -62,7 +62,7 @@
 			</form>
 		</dialog>
 		<dialog id="login-dialog" class="card shadow animation-speed-normal animation-ease-in-out fadeIn">
-			<form name="login" is="login-form">
+			<form name="login" action="api/v1/login/" method="post" is="login-form">
 				<fieldset>
 					<legend>Login</legend>
 					<label for="login-email" title="Email">
@@ -98,7 +98,7 @@
 			</form>
 		</dialog>
 		<dialog id="registration-dialog" class="card shadow animation-speed-normal animation-ease-in-out fadeIn">
-			<form name="registration" is="registration-form">
+			<form name="registration" action="api/v1/register/" method="post" is="registration-form">
 				<fieldset>
 					<legend>Register</legend>
 					<label for="registration-email" title="Email">

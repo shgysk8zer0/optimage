@@ -1,18 +1,15 @@
 let instance = null;
 
 export default class User extends EventTarget {
-	constructor(signedIn = false) {
+	constructor() {
 		super();
+		this.userData = {};
 		this.state = null;
-
-		this.addEventListener('login', () => {
-			sessionStorage.setItem('signedIn', 'yes');
-		});
 		this.addEventListener('logout', () => {
-			sessionStorage.setItem('signedIn', 'no');
+			sessionStorage.removeItem('userData');
 		});
-		if (signedIn) {
-			this.login();
+		if (sessionStorage.hasOwnProperty('userData')) {
+			this.login(JSON.parse(sessionStorage.getItem('userData')));
 		} else {
 			this.logOut();
 		}
@@ -28,10 +25,22 @@ export default class User extends EventTarget {
 		}
 	}
 
-	async login() {
-		this.state = true;
-		this.dispatchEvent(new CustomEvent('login'));
-		this.dispatchEvent(new CustomEvent('stateChange'));
+	async login(user) {
+		try {
+			if (! user.hasOwnProperty('email')) {
+				throw new Error('Invalid user data');
+			}
+			this.state = true;
+			this.userData = user;
+			this.dispatchEvent(new CustomEvent('login'));
+			this.dispatchEvent(new CustomEvent('stateChange'));
+			if (! sessionStorage.hasOwnProperty('userData')) {
+				sessionStorage.setItem('userData', JSON.stringify(user));
+			}
+		} catch (err) {
+			console.error(err);
+			this.logOut();
+		}
 	}
 
 	async logOut() {
@@ -41,15 +50,14 @@ export default class User extends EventTarget {
 	}
 
 	get signedIn() {
-		return sessionStorage.hasOwnProperty('signedIn') && sessionStorage.getItem('signedIn') === 'yes';
+		return this.userData.hasOwnProperty('email');
 	}
 
 	static async init() {
 		if (instance !== null) {
 			return instance;
 		} else {
-			const state = sessionStorage.hasOwnProperty('signedIn') && sessionStorage.getItem('signedIn') === 'yes';
-			const user = new User(state);
+			const user = new User();
 			instance = user;
 			return user.ready();
 		}
